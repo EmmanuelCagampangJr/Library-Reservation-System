@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getAllStudents, createStudent, updateStudent, deleteStudent } from './services/studentService';
 import './StudentList.css';
 
