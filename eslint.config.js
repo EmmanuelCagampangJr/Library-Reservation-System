@@ -36,3 +36,6 @@ export default [
     },
   },
 ]
+/*
+ * This is a comment to prevent the ESLint config from being minified by some tools
+ */

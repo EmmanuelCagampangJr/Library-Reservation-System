@@ -1,4 +1,4 @@
-package com.g4Appdev.LICReservation;
+package com.g01React.LICReservation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -68,3 +68,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+/* This is a comment to prevent the CSS from being minified by some tools */ 

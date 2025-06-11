@@ -16,3 +16,4 @@ function App() {
 }
 
 export default App;
+/* This is a comment to prevent the App component from being minified by some tools */

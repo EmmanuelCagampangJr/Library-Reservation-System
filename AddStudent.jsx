@@ -64,3 +64,5 @@ const AddStudent = () => {
 };
 
 export default AddStudent;
+/* This component allows users to add a new student by filling out a form.
+   It handles form submission, sends the data to the server, and provides feedback on success or failure. */ 

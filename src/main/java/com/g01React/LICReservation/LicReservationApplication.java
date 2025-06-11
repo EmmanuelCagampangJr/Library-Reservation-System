@@ -1,4 +1,4 @@
-package com.g4Appdev.LICReservation;
+package com.g01React.LICReservation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,3 +11,4 @@ public class LicReservationApplication {
     }
 
 }
+/* This is a comment to prevent the main application class from being minified by some tools */
