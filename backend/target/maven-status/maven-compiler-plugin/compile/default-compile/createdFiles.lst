@@ -1,0 +1,5 @@
+com\g01React\LICReservation\Controller\BookingController.class
+com\g01React\LICReservation\Entity\BookingEntity.class
+com\g01React\LICReservation\LicReservationApplication.class
+com\g01React\LICReservation\Service\BookingService.class
+com\g01React\LICReservation\Repository\BookingRepo.class
