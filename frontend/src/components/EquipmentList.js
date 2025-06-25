@@ -131,11 +131,9 @@ const EquipmentList = () => {
           </div>
           <div style={styles.footerSection}>
             <h3 style={styles.footerTitle}>About Us</h3>
-            <p>Cajegas, Angelo</p>
-            <p>Tesaluna, Josh</p>
-            <p>Basalo, Michael</p>
-            <p>Paquero, Ronan</p>
+            <p>Bebiro, Ryan</p>
             <p>Cagampang, Emmanuel</p>
+            <p>Jumawan, Clyde</p>
           </div>
         </div>
         <div style={styles.footerBottom}>

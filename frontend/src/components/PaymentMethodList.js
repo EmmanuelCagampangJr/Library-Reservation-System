@@ -115,11 +115,9 @@ const PaymentMethodList = () => {
  
                 <div className="footer-section">
 <h3>About Us</h3>
-<p>Cajegas, Angelo</p>
-<p>Tesaluna, Josh</p>
-<p>Basalo, Michael</p>
-<p>Paquero, Ronan</p>
+<p>Bebiro, Ryan</p>
 <p>Cagampang, Emmanuel</p>
+<p>Jumawan, Clyde</p>
 </div>
 <div className="footer-bottom">
 <p>© 2020 TeknoLib. All rights reserved.</p>
