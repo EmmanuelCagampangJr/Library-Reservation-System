@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.g01React.LICReservation.LicReservationApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.909 s -- in com.g01React.LICReservation.LicReservationApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.898 s -- in com.g01React.LICReservation.LicReservationApplicationTests
