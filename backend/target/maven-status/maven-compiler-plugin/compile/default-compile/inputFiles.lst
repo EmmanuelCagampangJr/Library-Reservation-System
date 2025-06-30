@@ -1,5 +1,9 @@
 C:\Users\emman\Downloads\Library-Reservation-System\backend\src\main\java\com\g01React\LICReservation\Controller\BookingController.java
+C:\Users\emman\Downloads\Library-Reservation-System\backend\src\main\java\com\g01React\LICReservation\Controller\UserController.java
 C:\Users\emman\Downloads\Library-Reservation-System\backend\src\main\java\com\g01React\LICReservation\Entity\BookingEntity.java
+C:\Users\emman\Downloads\Library-Reservation-System\backend\src\main\java\com\g01React\LICReservation\Entity\UserEntity.java
 C:\Users\emman\Downloads\Library-Reservation-System\backend\src\main\java\com\g01React\LICReservation\LicReservationApplication.java
 C:\Users\emman\Downloads\Library-Reservation-System\backend\src\main\java\com\g01React\LICReservation\Repository\BookingRepo.java
+C:\Users\emman\Downloads\Library-Reservation-System\backend\src\main\java\com\g01React\LICReservation\Repository\UserRepo.java
 C:\Users\emman\Downloads\Library-Reservation-System\backend\src\main\java\com\g01React\LICReservation\Service\BookingService.java
+C:\Users\emman\Downloads\Library-Reservation-System\backend\src\main\java\com\g01React\LICReservation\Service\UserService.java
