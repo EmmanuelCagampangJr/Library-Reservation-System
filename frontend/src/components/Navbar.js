@@ -52,7 +52,9 @@ function Navbar() {
       {/* Desktop Navigation */}
       <div style={{
         ...styles.navLinks,
-        display: { xs: 'none', md: 'flex' }
+        display: 'flex',
+        alignItems: 'center',
+        height: '48px',
       }}>
         {navItems.map((item, idx) => (
           <Link
@@ -60,6 +62,10 @@ function Navbar() {
             to={item.path}
             style={{
               ...styles.navLink,
+              lineHeight: '1.5',
+              height: '40px',
+              display: 'flex',
+              alignItems: 'center',
               ...(location.pathname === item.path ? styles.navLinkActive : {}),
               ...(navHover[idx] ? { 
                 color: 'var(--primary-700)',
