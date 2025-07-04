@@ -57,7 +57,7 @@ function HomePage() {
         <section style={{
           ...styles.heroCard,
           marginBottom: 'var(--space-16)',
-          background: `linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%), url('/images/homebg.jpg')`,
+          background: `linear-gradient(135deg, rgba(37, 99, 235, 0.4) 0%, rgba(30, 64, 175, 0.4) 100%), url('/images/homebg.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: 'white',
@@ -69,7 +69,8 @@ function HomePage() {
             fontSize: 'var(--font-size-5xl)',
             fontWeight: 800,
             marginBottom: 'var(--space-6)',
-            lineHeight: 1.1
+            lineHeight: 1.1,
+            textShadow: '0 2px 8px rgba(0,0,0,0.4)'
           }}>
             Welcome to the Future of Library Management
           </div>
@@ -77,7 +78,8 @@ function HomePage() {
             ...styles.subtitle,
             fontSize: 'var(--font-size-xl)',
             maxWidth: '600px',
-            margin: '0 auto var(--space-8)'
+            margin: '0 auto var(--space-8)',
+            textShadow: '0 2px 8px rgba(0,0,0,0.3)'
           }}>
             Streamline your library operations with our comprehensive management system. 
             From student registration to equipment tracking, we've got you covered.
