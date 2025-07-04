@@ -1,12 +1,12 @@
 package com.g01React.LICReservation.Service;
 
+import java.util.Optional;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service; // Important for password hashing
+
 import com.g01React.LICReservation.Entity.UserEntity;
 import com.g01React.LICReservation.Repository.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder; // Important for password hashing
-import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 /**
  * Service class for handling User-related business logic.
@@ -16,14 +16,13 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepo userRepo;
-    private final PasswordEncoder passwordEncoder; // Injects the password encoder for hashing
+    private final PasswordEncoder passwordEncoder;
 
     /**
      * Constructor for dependency injection.
      * @param userRepo The UserRepository to interact with the database.
      * @param passwordEncoder The PasswordEncoder for secure password hashing.
      */
-    @Autowired
     public UserService(UserRepo userRepo, PasswordEncoder passwordEncoder) {
         this.userRepo = userRepo;
         this.passwordEncoder = passwordEncoder;

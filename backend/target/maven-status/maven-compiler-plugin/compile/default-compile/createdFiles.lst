@@ -1,11 +1,12 @@
 com\g01React\LICReservation\Controller\BookingController.class
 com\g01React\LICReservation\Entity\BookingEntity.class
 com\g01React\LICReservation\Entity\UserEntity.class
-com\g01React\LICReservation\LicReservationApplication.class
 com\g01React\LICReservation\Controller\UserController.class
+com\g01React\LICReservation\Service\BookingService.class
+com\g01React\LICReservation\Service\UserService.class
+com\g01React\LICReservation\Config\SecurityConfig.class
+com\g01React\LICReservation\LicReservationApplication.class
 com\g01React\LICReservation\Repository\UserRepo.class
 com\g01React\LICReservation\Controller\UserController$LoginRequest.class
-com\g01React\LICReservation\Service\BookingService.class
 com\g01React\LICReservation\Controller\UserController$RegisterRequest.class
-com\g01React\LICReservation\Service\UserService.class
 com\g01React\LICReservation\Repository\BookingRepo.class

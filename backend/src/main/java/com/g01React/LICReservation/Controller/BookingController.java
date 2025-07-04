@@ -2,7 +2,6 @@ package com.g01React.LICReservation.Controller; // Corrected from com.g01ampReac
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +19,11 @@ import com.g01React.LICReservation.Service.BookingService;
 @RequestMapping("/bookings")
 public class BookingController {
 
-    @Autowired
-    private BookingService bookingService;
+    private final BookingService bookingService;
+
+    public BookingController(BookingService bookingService) {
+        this.bookingService = bookingService;
+    }
 
     @GetMapping("/getAllBookings")
     public List<BookingEntity> getAllBookings() {
