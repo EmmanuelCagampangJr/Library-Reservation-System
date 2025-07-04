@@ -76,6 +76,7 @@ function HomePage() {
           </div>
           <p style={{
             ...styles.subtitle,
+            color: '#fff',
             fontSize: 'var(--font-size-xl)',
             maxWidth: '600px',
             margin: '0 auto var(--space-8)',
