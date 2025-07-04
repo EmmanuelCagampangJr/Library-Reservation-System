@@ -14,47 +14,14 @@ function ReservationManagement() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [reservations, setReservations] = useState([
-    {
-      id: 1,
-      studentId: '2021-001',
-      studentName: 'John Doe',
-      resourceType: 'Study Room',
-      resourceName: 'Room A-101',
-      date: '2024-01-15',
-      startTime: '09:00',
-      endTime: '11:00',
-      purpose: 'Group Study Session',
-      status: 'confirmed'
-    },
-    {
-      id: 2,
-      studentId: '2021-002',
-      studentName: 'Jane Smith',
-      resourceType: 'Equipment',
-      resourceName: 'Laptop #5',
-      date: '2024-01-16',
-      startTime: '14:00',
-      endTime: '16:00',
-      purpose: 'Research Project',
-      status: 'pending'
-    },
-    {
-      id: 3,
-      studentId: '2021-003',
-      studentName: 'Mike Johnson',
-      resourceType: 'Study Room',
-      resourceName: 'Room B-203',
-      date: '2024-01-17',
-      startTime: '10:00',
-      endTime: '12:00',
-      purpose: 'Presentation Practice',
-      status: 'confirmed'
-    }
-  ]);
+  const [reservations, setReservations] = useState([]);
 
   useEffect(() => {
     setIsVisible(true);
+    fetch('http://localhost:8080/api/reservations')
+      .then(res => res.json())
+      .then(data => setReservations(data))
+      .catch(err => console.error(err));
   }, []);
 
   const resourceTypes = [
@@ -82,39 +49,44 @@ function ReservationManagement() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      const student = students.find(s => s.id === formData.studentId);
-      const newReservation = {
-        id: reservations.length + 1,
-        studentId: formData.studentId,
-        studentName: student ? student.name : 'Unknown Student',
-        resourceType: formData.resourceType,
-        resourceName: formData.resourceName,
-        date: formData.date,
-        startTime: formData.startTime,
-        endTime: formData.endTime,
-        purpose: formData.purpose,
-        status: 'pending'
-      };
-      
-      setReservations([...reservations, newReservation]);
-      
-      // Reset form
-      setFormData({
-        studentId: '',
-        resourceType: '',
-        resourceName: '',
-        date: '',
-        startTime: '',
-        endTime: '',
-        purpose: ''
+
+    const student = students.find(s => s.id === formData.studentId);
+    const newReservation = {
+      user: { id: formData.studentId },
+      studentName: student ? student.name : 'Unknown Student',
+      resourceType: formData.resourceType,
+      resourceName: formData.resourceName,
+      bookingDate: formData.date,
+      startTime: formData.startTime,
+      endTime: formData.endTime,
+      purpose: formData.purpose,
+      status: 'pending',
+      duration: 60 // or calculate based on start/end time if needed
+    };
+
+    fetch('http://localhost:8080/api/reservations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newReservation)
+    })
+      .then(res => res.json())
+      .then(data => {
+        setReservations(prev => [...prev, data]);
+        setFormData({
+          studentId: '',
+          resourceType: '',
+          resourceName: '',
+          date: '',
+          startTime: '',
+          endTime: '',
+          purpose: ''
+        });
+        setIsLoading(false);
+      })
+      .catch(err => {
+        alert('Error creating reservation');
+        setIsLoading(false);
       });
-      
-      alert('Reservation created successfully!');
-      setIsLoading(false);
-    }, 1000);
   };
 
   const handleStatusChange = (id, newStatus) => {
@@ -417,7 +389,7 @@ function ReservationManagement() {
                 gap: 'var(--space-4)'
               }}>
                 {reservations.map((reservation, index) => (
-                  <div key={reservation.id} style={{
+                  <div key={reservation.bookingId || reservation.id} style={{
                     ...styles.card,
                     padding: 'var(--space-6)',
                     transform: `translateY(${isVisible ? 0 : 20}px)`,
@@ -445,7 +417,7 @@ function ReservationManagement() {
                           fontWeight: 500,
                           fontFamily: 'monospace'
                         }}>
-                          {reservation.studentId}
+                          {reservation.user ? reservation.user.id : reservation.studentId}
                         </p>
                       </div>
                       <div style={{
@@ -527,7 +499,7 @@ function ReservationManagement() {
                           color: 'var(--gray-800)',
                           fontWeight: 500
                         }}>
-                          {reservation.date} {reservation.startTime}-{reservation.endTime}
+                          {reservation.bookingDate} {reservation.startTime}-{reservation.endTime}
                         </p>
                       </div>
                       <div>
