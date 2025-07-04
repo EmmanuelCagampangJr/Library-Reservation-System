@@ -8,6 +8,7 @@ function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,17 +18,19 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setMessage('');
     
     // Simulate API call
     setTimeout(() => {
       const user = JSON.parse(localStorage.getItem('user'));
       if (user && user.username === username && user.password === password) {
         localStorage.setItem('isLoggedIn', 'true');
-        // Show success message
-        alert('Login successful! Welcome back!');
-        navigate('/');
+        setMessage('Login successful! Welcome back!');
+        setTimeout(() => {
+          navigate('/');
+        }, 1000);
       } else {
-        alert('Invalid credentials. Please try again.');
+        setMessage('Invalid credentials. Please try again.');
       }
       setIsLoading(false);
     }, 1000);
@@ -208,6 +211,18 @@ function Login() {
             )}
           </button>
         </form>
+
+        {/* Feedback Message */}
+        {message && (
+          <div style={{
+            marginTop: '16px',
+            color: message.includes('success') ? 'green' : 'red',
+            textAlign: 'center',
+            fontWeight: 500
+          }}>
+            {message}
+          </div>
+        )}
 
         {/* Divider */}
         <div style={{

@@ -17,6 +17,7 @@ function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -77,13 +78,11 @@ function Signup() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    
+    setMessage('');
     if (!validateForm()) {
       return;
     }
-
     setIsLoading(true);
-    
     // Simulate API call
     setTimeout(() => {
       const userData = {
@@ -94,10 +93,11 @@ function Signup() {
         email: formData.email,
         role: formData.role
       };
-      
       localStorage.setItem('user', JSON.stringify(userData));
-      alert('Account created successfully! Please login with your credentials.');
-      navigate('/login');
+      setMessage('Account created successfully! Please login with your credentials.');
+      setTimeout(() => {
+        navigate('/login');
+      }, 1200);
       setIsLoading(false);
     }, 1500);
   };
@@ -502,6 +502,18 @@ function Signup() {
             )}
           </button>
         </form>
+
+        {/* Feedback Message */}
+        {message && (
+          <div style={{
+            marginTop: '16px',
+            color: message.includes('success') ? 'green' : 'red',
+            textAlign: 'center',
+            fontWeight: 500
+          }}>
+            {message}
+          </div>
+        )}
 
         {/* Divider */}
         <div style={{
