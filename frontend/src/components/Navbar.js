@@ -67,7 +67,7 @@ function Navbar() {
               display: 'flex',
               alignItems: 'center',
               ...(location.pathname === item.path ? styles.navLinkActive : {}),
-              ...(navHover[idx] ? { 
+              ...(navHover[idx] ? {
                 color: 'var(--primary-700)',
                 backgroundColor: 'var(--primary-50)',
                 transform: 'translateY(-1px)'

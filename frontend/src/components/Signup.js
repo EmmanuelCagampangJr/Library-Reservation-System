@@ -164,8 +164,7 @@ function Signup() {
               src="/book.png" 
               alt="Logo" 
               style={{ 
-                height: '40px',
-                filter: 'brightness(0) invert(1)'
+                height: '40px'
               }} 
             />
           </div>
